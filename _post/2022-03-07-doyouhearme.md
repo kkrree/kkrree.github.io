@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "do you hear me..?"
+title: "do you hear me"
 toc: true
 ---
 
