@@ -16,7 +16,7 @@ minimal_mistakes_skin    :  "default" # "default", "air", "aqua", "contrast", "d
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Kree's study.zip"
+title                    : "Kree studyzip"
 title_separator          : "|"
 subtitle                 : "짱이 될거야" # site tagline that appears below site title in masthead
 name                     : "KreeChoi"
