@@ -1,13 +1,16 @@
 ---
 layout: single
-title:  "[Git] Git Repository 개요"
+excerpt: "Git의 원격 저장소란 ?"
 
 categories:
   - Git
-
-permalink: /categories/git/
+tags:
+  - [Git, Git Command, Github]
 
 toc: true
+toc_sticky: true
+
+permalink: /categories/git/
 ---
 
 
