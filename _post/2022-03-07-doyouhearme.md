@@ -1,7 +1,6 @@
 ---
 layout: single
 title: "do you hear me..?"
-categories: git
 toc: true
 ---
 
