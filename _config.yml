@@ -16,9 +16,9 @@ minimal_mistakes_skin    :  "default"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Kree studyzip"
+title                    : "study.zip"
 title_separator          : "|"
-subtitle                 : "짱이 될거야" # site tagline that appears below site title in masthead
+subtitle                 : # site tagline that appears below site title in masthead
 name                     : "KreeChoi"
 description              : "Build-up to become the best"
 url                      : "https://kkrree.github.io"
@@ -105,7 +105,7 @@ author:
   name             : "KreeChoi"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "the archive of study output"
-  location         : "Somewhere"
+  location         : # "Somewhere"
   email            :
   links:
     - label: "Email"
