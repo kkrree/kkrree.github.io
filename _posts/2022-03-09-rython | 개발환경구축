@@ -1,0 +1,106 @@
+---
+layout: single
+
+categories: 
+	- Python
+
+tags:
+	- Python
+
+toc: true
+toc_sticky: true
+---
+> 운영체제 | window 10
+
+> 사용할 도구
+>- Anaconda
+>- PyCharm
+>- VS code
+>- Pandas
+>- Numpy
+>- Tensorflow
+>- Jupyter Notebook
+>
+>| Django는 Pycharm을, 타 작업은 VS code를 주로 이용한다.
+
+이전에 anaconda와 jupyter notebook 셋팅은 완료하였다. [링크](https://kkrree.tistory.com/3) 참고
+
+## Anaconda 
+- 공식 홈페이지에서 Anaconda download
+	- 환경변수 자동 생성 체크박스 선택
+
+- 추가적으로 타 패키지들과 작업시 충돌 우려로 python downgrade 작업 착수
+	- 원하는 version의 가상환경 생성 (cmd)
+		```bash
+		conda create -n [가상환경명] python=3.7
+		# 가상환경 생성
+		activate [가상환경명]
+		# 가상환경 활성화
+		```
+
+## PyCharm
+- 공식 홈페이지에서 PyCharm Community(무료버전) download
+	- 환경변수 자동 설정 체크 박스 선택
+
+- Anaconda, PyCharm 연동 
+	- open PyCharm
+	- location확인: base interpreter anaconda의 python 경로로 설정
+
+## VS code
+- 공식 홈페이지에서 VS code download(이미 설치했었음)
+- terminal 창에서 python --version 확인
+- extension 설치
+	- Python
+	- Code Runner
+-  command palette 
+	- python: select interpreter > conda에 설정한 python 버전으로 확인 및 선택
+	- terminal 창에서 conda 가상환경 활성화 및 python 버전 확인
+
+- Jupyter Notebook 실행
+	- command palette 
+		- jupyter: create new blank notebook
+		- new file > .ipynb 확장자 파일 생성
+
+## Jupyter Notebok
+- Anaconda에서 jupyter notebook실행 
+- config 파일 생성 및 수정
+	- open Anaconda Prompt
+		```bash
+		jupyter notebook --generate-config
+		#.jupyter 폴더 위치에서 config 파일 생성
+		```
+- 디렉토리 연동 확인
+	- jupyter notebook 우클릭, 속성
+		- 대상에 "%USERPROFILE%/" 지움
+		- 시작위치에 %HOMEPATH% 지움
+		- 사용자명이나 경로에 한국어 껴있으면 **절.대. 에러**
+- jupyter kernel 연동 확인
+	  - 원하는 가상환경에서 확인
+	```bash
+	conda install jupyter notebook
+	#kernel 추가를 위한 라이브러리 설치
+	python -m ipykernel install --user  --name [가상환경 이름] --display-name [jupyter에 표시될 이름]
+	#kernel 추가
+
+	#추가한 kernel삭제
+	jupyter kernelspec uninstall [가상환경 이름]
+	 ```
+		  
+## add Some Package - Pandas, Numpy, Tensorflow
+여러방법으로 package 설치 가능, 필자는 3번의 방법으로 설치
+1. cmd에서 pip package로 설치 가능
+2. Anaconda Navigation 앱의 Environment메뉴에서 설치가능
+3. cmd에서 conda 명령어로 설치 가능
+	```bash
+	conda activate [원하는 가상환경]
+	#원하는 가상환경 활성화
+	conda install [pandas/numpy/tensorflow]
+	#원하는 패키지 설치
+	#이때 이유 없이 설치에 오랜 시간 로딩만 될 경우 다른 python버전으로 실행해 볼 것 (버전 충돌 오류의 가능성)
+	```
+
+---
+참고
+- https://velog.io/@gillog/Python-Pycharm-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0
+- https://toward-the-future.tistory.com/entry/Python-%ED%8C%8C%EC%9D%B4%EC%B0%B8Pycharm-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%95%84%EB%82%98%EC%BD%98%EB%8B%A4anaconda-%EA%B0%80%EC%83%81%ED%99%98%EA%B2%BD-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0
+- https://hengbokhan.tistory.com/74 
