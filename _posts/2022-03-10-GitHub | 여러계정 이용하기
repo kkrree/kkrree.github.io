@@ -1,0 +1,88 @@
+---
+layout: single
+
+categories: 
+	- Python
+
+tags:
+	- [Git, GitHub]
+
+toc: true
+toc_sticky: true
+---
+
+> 운영체제 | window 
+> Terminal 도구 | git bash
+
+## ssh key 생성
+
+홈 경로에서 `.ssh`  디렉토리 생성 및 이동
+```bash
+ssh-keygen -t rsa -C [github 이메일 계정] -f [생성될 key 파일명]
+```
+형식으로 계정 별 키를 생성
+ 
+ 
+ ## config 파일 생성
+.ssh 디렉토리 위치에서 config.txt파일 생성
+```
+# 개인 계정
+Host github.com-[계정1]
+	HostName github.com
+	User [계정1 이메일]
+	IdentityFile ~/.ssh/[계정1 key 파일명]
+
+# 회사 계정
+Host github.com-[계정2]
+	HostName github.com
+	User [계정2 이메일]
+	IdentityFile ~/.ssh/[계정2 key 파일명]
+```
+위 텍스트처럼 입력 후 저장
+
+
+## ssh agent 등록
+```bash
+ssh-add -K ~/.ssh/[계정별 key 파일]
+# 혹은
+ssh-add [계정별 key 파일]
+Identity added: [계정별 key 파일] (git1@email.com)
+```
+Identity added: [계정별 key 파일] ([계정별 email]) 코드가 뜨면 완료
+
+Could not open a connection to your authentication agent라는 에러가 발생한다면 아래 명령어를 입력해준후 위의 명령어(ssh-add ~)를 다시 입력
+```bash
+eval "$(ssh-agent -s)"
+```
+
+```bash
+ssh-add -l
+```
+위 명령어를 통해 agent 저장 및 agent목록 확인
+
+
+##  pub key 등록
+github에서 profile setting으로 이동
+SSH and GPG keys 메뉴에서 new ssh key클릭
+각 계정에 해당하는 public key를 계정 별로 등록
+
+##  연결 확인
+```bash
+git clone [remote git 주소]
+```
+clone하고 init, test 파일 작성하여 commit 
+
+>push 할 때, 443 에러 발생
+```bash
+git remote set-url origin https://[YOURUSERNAME]@github.com/USERNAME/REPOSITORY.git]
+```
+위 명령어 입력 후 push, 해당 계정의 github에 잘 올라왔는지 확인 
+
+
+---
+참고
+
+	- https://www.irgroup.org/posts/github-%EC%BB%B4%ED%93%A8%ED%84%B0-%ED%95%9C%EB%8C%80%EB%A1%9C-%EC%97%AC%EB%9F%AC-%EA%B3%84%EC%A0%95-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/
+	- https://velog.io/@sonypark/GitHubSSH%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%B4-%EC%97%AC%EB%9F%AC%EA%B0%9C%EC%9D%98-%EA%B9%83%ED%97%88%EB%B8%8C-%EA%B3%84%EC%A0%95-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-6mk3iesh0u
+	- https://velog.io/@arthur/GitHub-%EC%97%90%EB%9F%AC-%ED%95%B4%EA%B2%B0-The-requested-URL-returned-error-403
+
